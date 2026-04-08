@@ -31,7 +31,7 @@ public class Player : BaseEntity
         {
             float distance = Vector3.Distance(enemy.transform.position, transform.position);
             if (distance <= range && enemy.GetComponent<Enemy>() != null)
-                enemy.GetComponent<Enemy>().TakeDamage(this);
+                enemy.GetComponent<Enemy>().TakeDamage(this,Element );
         }
 
     }
@@ -54,7 +54,7 @@ public class Player : BaseEntity
         Enemys.Remove(collision.gameObject);
     }
 
-    public override void TakeDamage(BaseEntity damager)
+    public override void TakeDamage(BaseEntity damager, Elements elements)
     {
         // base.TakeDamage(damager);
 

@@ -1,18 +1,33 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : BaseEntity
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public BoxCollider2D coll;
+    public float range;
+
+
+    private void Awake()
     {
-        
+        coll = GetComponent<BoxCollider2D>();
+        coll.AddComponent<Enemy>();
     }
 
-    // Update is called once per frame
+    void Start()
+    {
+       
+
+    }
+
     void Update()
     {
         
     }
 
+   /* public override void TakeDamage(BaseEntity damager)
+    {
+        base.TakeDamage(damager, enemyType); 
+    }
+   */
     
 }

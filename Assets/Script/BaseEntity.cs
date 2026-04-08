@@ -1,15 +1,24 @@
 
+using Unity.Android.Gradle;
 using UnityEngine;
 
 
 
 public enum Elements
 {
-    None,//0
-    Fire,//1
-    Water,//2
+    None,
+    Fire,
+    Water,
     Earth,
     Air
+}
+
+public enum EnemyType
+{
+    Araña,
+    Ciclope,
+    Murcielago,
+    Arañita
 }
 
 public abstract class BaseEntity : MonoBehaviour
@@ -20,17 +29,19 @@ public abstract class BaseEntity : MonoBehaviour
 
     [SerializeField] protected Elements element;
 
+    [SerializeField] protected EnemyType enemyType; 
+
     [SerializeField] protected BaseStats stats;
 
     private void Awake()
     {
-        stats = new(10, 10, 10, 10, 10);
+        stats = new(10, 10, 10, 10, 10, 10);
     }
     private void Start()
     {
         
     }
-    public virtual void TakeDamage(BaseEntity damager)
+    public virtual void TakeDamage(BaseEntity damager, Elements elements)
     {
         stats.TakeDamage(damager.stats.Power);
     }

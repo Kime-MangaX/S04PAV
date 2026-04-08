@@ -5,20 +5,24 @@ using UnityEngine;
 public class BaseStats 
 {
     // Relación de Composición
-    private int health;
+    [SerializeField] private int health = 100;
     private int power;
     private int speed;
     private int knockback;
     private int xp;
+    public int damageValue = 10;
 
 
-    public BaseStats(int health , int power, int speed, int knockback , int xp)
+    public BaseStats(int health , int power, int speed, int knockback , int xp , int damageValue)
     {
         SetHealth(health);
         SetPower(power);
         SetSpeed(speed);
         SetKnockback(knockback);
         SetXP(xp);
+        SetDamageValue(damageValue);
+
+
     }
     public void SetPower(int power)
     {
@@ -44,6 +48,12 @@ public class BaseStats
     {
         this.xp = xp;
     }
+
+    public void SetDamageValue(int damageValue)
+    {
+        this.damageValue = damageValue;
+    }
+
     public void TakeDamage(int value)
     {
         health -= value;
@@ -56,6 +66,12 @@ public class BaseStats
     public int Speed => speed;
     public int Knockback => knockback;
     public int XP => xp;
+    public int DamageValue => damageValue;
+
+
+
+
+
 
     ~BaseStats()
     {
