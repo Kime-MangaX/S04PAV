@@ -1,15 +1,15 @@
+// Clase base para ítems
 using UnityEngine;
 
-public class BaseCollectable : MonoBehaviour
+public abstract class BaseCollectable : MonoBehaviour
 {
-
-    void Start()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.TryGetComponent<Player>(out Player player))
+        {
+            ApplyEffect(player);
+            Destroy(gameObject);
+        }
     }
-
-    void Update()
-    {
-        
-    }
+    protected abstract void ApplyEffect(Player player);
 }
