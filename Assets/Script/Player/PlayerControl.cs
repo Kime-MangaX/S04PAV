@@ -2,12 +2,24 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
+public enum PlayerCcontroler
+{
+    None,
+    Player1,
+    Player2
+}
+
 public class PlayerControl : MonoBehaviour
 {
     public InputSystem_Actions inputs;
 
     public Vector2 MoveInput;
     public int MoveSpeed;
+
+    public PlayerCcontroler playerCcontroler;   
+
+  
 
     private void Awake()
     {
@@ -17,10 +29,31 @@ public class PlayerControl : MonoBehaviour
     private void OnEnable()
     {
         inputs.Enable();
-        inputs.Player.Move.performed += OnPlayerMove;
-        inputs.Player.Move.canceled += OnPlayerMoveCanceled;
-        inputs.Player.Attack_1.started += OnAttack1;
-        inputs.Player.Attack_1.started += OnAttack2;
+
+        switch (playerCcontroler)
+        {
+            case PlayerCcontroler.None:
+                break;
+            case PlayerCcontroler.Player1:
+                {
+                    inputs.Player.Player1_Move.performed += OnPlayerMove;
+                    inputs.Player.Player1_Move.canceled += OnPlayerMoveCanceled;
+                    inputs.Player.Attack_1.started += OnAttack1;
+                    inputs.Player.Attack_1.started += OnAttack2;
+                }
+                break;
+            case PlayerCcontroler.Player2:
+
+                {
+                    inputs.Player.Player2_Move.performed += OnPlayerMove;
+                    inputs.Player.Player2_Move.canceled += OnPlayerMoveCanceled;
+                    inputs.Player.Player2_Move.started += OnAttack1;
+                    inputs.Player.Player2_Move.started += OnAttack2;
+                }
+                break;
+        }
+
+       
     }
 
     private void OnAttack1(InputAction.CallbackContext context)

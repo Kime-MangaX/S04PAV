@@ -7,9 +7,18 @@
             "id": "df70fa95-8a34-4494-b137-73ab6b9c7d37",
             "actions": [
                 {
-                    "name": "Move",
+                    "name": "Player1_Move",
                     "type": "Value",
                     "id": "351f2ccd-1f9f-44bf-9bec-d62ac5c5f408",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Player2_Move",
+                    "type": "Value",
+                    "id": "ba6ccd9b-51ac-4154-8e55-97681ec2c0b3",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -105,7 +114,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Move",
+                    "action": "Player1_Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -116,7 +125,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Player1_Move",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -127,7 +136,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "Player1_Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -138,7 +147,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "Player1_Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -149,7 +158,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "Player1_Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -160,7 +169,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "Player1_Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -171,7 +180,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "Player1_Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -182,7 +191,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "Player1_Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -193,7 +202,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "Player1_Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -204,7 +213,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "Player1_Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -215,7 +224,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
-                    "action": "Move",
+                    "action": "Player1_Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -226,7 +235,139 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Joystick",
-                    "action": "Move",
+                    "action": "Player1_Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a48d3cc4-4408-477e-9a45-969b97760b36",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Player2_Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "WASD",
+                    "id": "8ea256a8-f00c-4422-b75b-59f3f3d68203",
+                    "path": "Dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Player2_Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "ac9260ce-3be5-41ef-961a-40b4449130cb",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Player2_Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "up",
+                    "id": "aa505724-d149-4c33-80dc-46d02df20adb",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Player2_Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "5e2d6903-92b6-4e18-b8b9-59d541d4c48a",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Player2_Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "f4afb192-a948-4dfa-8d8b-9aea475a0767",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Player2_Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "b8e02c26-d913-4711-a979-9b94f584fd13",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Player2_Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "a96eef85-fa3f-4e79-ab62-474c1378eab0",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Player2_Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "9c9a5fd8-4384-48f2-b44e-4c32ddca82c7",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Player2_Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "56582621-b6fa-4e9c-b5ac-f17e51ec4b38",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Player2_Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "5460eacb-a124-4bf3-81c4-4e36a32668d6",
+                    "path": "<XRController>/{Primary2DAxis}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "Player2_Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e062fe8d-82a2-4897-848e-1f409ec4277b",
+                    "path": "<Joystick>/stick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "Player2_Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
