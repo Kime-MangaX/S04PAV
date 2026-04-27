@@ -23,7 +23,7 @@ public class Player : BaseEntity
         InvokeRepeating("AutoAttackEnemies", 1f, 1f);
     }
 
-    public void AutoAttackEnemies()
+    /*public void AutoAttackEnemies()
     {
         // Usamos un bucle for en inverso para limpiar la lista si un enemigo se muere y evitamos que aparesca mas
         for (int i = Enemys.Count - 1; i >= 0; i--)
@@ -41,7 +41,7 @@ public class Player : BaseEntity
                 Enemys[i].GetComponent<Enemy>().TakeDamage(this, this.element);
             }
         }
-    }
+    }*/
 
     public override void TakeDamage(BaseEntity damager, Elements damageElement)
     {
