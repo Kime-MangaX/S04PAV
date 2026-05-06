@@ -1,21 +1,85 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 
 public class CharacterController : BaseEntity, IDamageable
 {
+    public InputSystem_Actions inputs;
+    public Rigidbody2D rigibody;
 
+    public bool IsGrounded;
+    public float MoveInput;
+    public float Speed;
+    public float JumpForce;
+    public float JumpSpeed;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        inputs = new();
+    }
+
+
+    private void OnEnable()
+    {
+        inputs.Enable();
+        inputs.Player3.Movement.performed += OnMovementStart;
+        inputs.Player3.Movement.canceled += OnMovementFinish;
+
+        inputs.Player3.Jump.performed += OnJumpStart;
+        /*inputs.Player.Dash.performed += OnDashStart;
+        inputs.Player.StepBack.performed += OnStepBack;*/
+    }
+    void Start()
+    {
+
+    }
+    private void Update()
+    {
+        if (MoveInput != 0)
+        {
+            Vector2 dir = new Vector2(MoveInput, rigibody.linearVelocity.y);
+            //  rigibody.linearVelocity = dir * Speed;
+
+            rigibody.linearVelocity = new Vector2(MoveInput * Speed, rigibody.linearVelocity.y);
+        }
+
+    }
+    private void OnMovementStart(InputAction.CallbackContext context)
+    {
+        MoveInput = context.ReadValue<Vector2>().x;
+    }
+    private void OnMovementFinish(InputAction.CallbackContext context)
+    {
+        MoveInput = 0;
+    }
+    private void OnJumpStart(InputAction.CallbackContext context)
+    {
+        rigibody.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
+    }
 
     public void TakeDamage()
     {
 
     }
-
-    public override void TakeDamage(BaseEntity damager, Elements elements)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if (collision.gameObject.tag == "Ground")
+        {
+            rigibody.linearDamping = 30;
+            IsGrounded = true;
+        }
     }
-
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            rigibody.linearDamping = 1;
+            IsGrounded = false;
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<ICollectable>() != null)
@@ -23,5 +87,10 @@ public class CharacterController : BaseEntity, IDamageable
             collision.gameObject.GetComponent<ICollectable>().Collect();
         }
 
+    }
+
+    public override void TakeDamage(BaseEntity damager, Elements elements)
+    {
+     
     }
 }
