@@ -11,9 +11,16 @@ public class CharacterController : BaseEntity, IDamageable
 
     public bool IsGrounded;
     public float MoveInput;
-    public float Speed;
-    public float JumpForce;
-    public float JumpSpeed;
+    public float Speed = 8f;
+    public float JumpForce = 15f;
+
+    public float DashSpeed = 20f;
+    public float StepBackSpeed = 15f;
+    public float DashDuration = 0.2f;
+
+    private int facingDirection = 1; // 1 = Derecha, -1 = Izquierda
+    private bool isDashing = false;
+
 
     protected override void Awake()
     {
