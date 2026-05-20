@@ -18,8 +18,9 @@ public class CharacterController : BaseEntity, IDamageable
     public float StepBackSpeed = 15f;
     public float DashDuration = 0.2f;
 
-    private int facingDirection = 1; // 1 = Derecha, -1 = Izquierda
-    private bool isDashing = false;
+    // private int facingDirection = 1; // 1 = Derecha, -1 = Izquierda
+    // private bool isDashing = false;
+    // private bool isDashing = false;
 
 
     protected override void Awake()
@@ -39,6 +40,7 @@ public class CharacterController : BaseEntity, IDamageable
         /*inputs.Player.Dash.performed += OnDashStart;
         inputs.Player.StepBack.performed += OnStepBack;*/
     }
+
     void Start()
     {
 
